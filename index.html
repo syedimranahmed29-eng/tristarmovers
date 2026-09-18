@@ -100,8 +100,19 @@ a,.btn,button{transition:all .22s ease!important}
 </style>
 
 <style id="box-text-readability-only">
-.profile-card p,.profile-service p,.profile-strength,.profile-vision p,.detail span{color:#fff!important;opacity:1!important;}
-.profile-card h3,.profile-service h3,.profile-strength b,.detail b{opacity:1!important;}
+/* ONLY readability fix: text inside the dark content boxes. Nothing else is changed. */
+.page-view:not(#home-page) .vvip-card p,
+.page-view:not(#home-page) .profile-card p,
+.page-view:not(#home-page) .profile-card li {
+  color:#ffffff !important;
+  opacity:1 !important;
+  text-shadow:0 1px 2px rgba(0,0,0,.55) !important;
+}
+.page-view:not(#home-page) .vvip-card h3,
+.page-view:not(#home-page) .profile-card h3 {
+  color:#f0d58a !important;
+  opacity:1 !important;
+}
 </style>
 </head>
 <body>
