@@ -99,37 +99,60 @@ a,.btn,button{transition:all .22s ease!important}
 @media(max-width:600px){.vvip-grid{grid-template-columns:1fr}.page-hero{min-height:40vh}}
 </style>
 
-<style id="box-text-readability-only">
-/* ONLY readability fix: text inside the dark content boxes. Nothing else is changed. */
-.page-view:not(#home-page) .vvip-card p,
-.page-view:not(#home-page) .profile-card p,
-.page-view:not(#home-page) .profile-card li {
-  color:#ffffff !important;
-  opacity:1 !important;
-  text-shadow:0 1px 2px rgba(0,0,0,.55) !important;
-}
-.page-view:not(#home-page) .vvip-card h3,
-.page-view:not(#home-page) .profile-card h3 {
-  color:#f0d58a !important;
-  opacity:1 !important;
-}
+<style id="true-page-navigation">
+.page-view{display:none!important;min-height:60vh}
+.page-view:target{display:block!important}
+#home{display:block!important}
+body:has(.page-view:target) #home{display:none!important}
+.page-view:target{animation:pageFade .35s ease both}
+@keyframes pageFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+</style>
+
+
+<style id="home-fix">
+/* HOME always opens the actual site root. */
+#home{display:block!important}
+.page-view:not(#home){display:none!important}
+.page-view:target{display:block!important}
+</style>
+
+
+<style id="final-navigation-fix">
+.page-view{display:none!important}
+.page-view:target{display:block!important}
+#home{display:block!important}
+body:has(.page-view:target) #home{display:none!important}
+</style>
+
+<style id="box-text-color-only">
+/* ONLY box text readability fix — no layout/navigation/function changes */
+.vvip-card p{color:#ffffff!important;opacity:1!important}
+.vvip-card h3{color:#f0d58a!important}
 </style>
 </head>
 <body>
 <div class="top"><div class="wrap"><span>Karachi • Pakistan</span><span><b>TRI STAR MOVERS</b>  |  Custom Clearance • Transit • Logistics</span></div></div>
 <header><div class="wrap nav">
-<a class="brand" href="#home">
+<a class="brand" href="./">
 <div class="mark"><svg fill="none" viewbox="0 0 60 40"><path d="M7 30h46M12 25l8-13 8 13 7-10 8 10" stroke="#f1cd68" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path><path d="M7 34h46" opacity=".65" stroke="#fff" stroke-width="2"></path></svg></div>
 <div><strong>TRI STAR MOVERS</strong><small>CUSTOM CLEARANCE • AFGAN TRANSIT • LOGISTICS</small></div>
 </a>
-<nav><a data-page="home-page" href="#home-page">HOME</a><a data-page="services-page" href="#services-page">SERVICES</a><a data-page="about-page" href="#about-page">ABOUT</a><a href="#office">PROFILE</a><a data-page="contact" href="#contact">CONTACT</a></nav>
+<nav>
+<a href="./">HOME</a>
+<a href="#services">SERVICES</a>
+<a href="#about">ABOUT</a>
+<a href="#ceo">CEO MESSAGE</a>
+<a href="#strengths">STRENGTHS</a>
+<a href="#vision">VISION</a>
+<a href="#contact">CONTACT</a>
+</nav>
 </div></header>
-<section class="hero page-view active" id="home-page" style="display:block;"><div class="hero-badge" style="display:inline-block;margin-bottom:18px;padding:9px 15px;border:1px solid rgba(212,175,98,.38);border-radius:999px;color:#f0d58a;font-size:11px;font-weight:800;letter-spacing:.16em;background:rgba(212,175,98,.06);">PAKISTAN • AFGHANISTAN • REGIONAL LOGISTICS</div><div class="wrap"><div class="copy">
+<section class="hero page-view active" id="home" style="display:block;"><div class="hero-badge" style="display:inline-block;margin-bottom:18px;padding:9px 15px;border:1px solid rgba(212,175,98,.38);border-radius:999px;color:#f0d58a;font-size:11px;font-weight:800;letter-spacing:.16em;background:rgba(212,175,98,.06);">PAKISTAN • AFGHANISTAN • REGIONAL LOGISTICS</div><div class="wrap"><div class="copy">
 <div class="kicker"><span class="dot"></span> PROFESSIONAL TRADE &amp; LOGISTICS SUPPORT</div>
 <h1>TRI STAR <span>MOVERS</span></h1>
 <h2>CUSTOM CLEARANCE - AFGAN TRANSIT - LOGISTICS - WAREHOUSING</h2>
 <p>Reliable coordination for customs clearance, transit cargo, logistics and warehousing operations — presented with a professional corporate service approach.</p>
-<div class="actions"><a class="btn gold" href="#services">EXPLORE SERVICES</a><a class="btn glass" data-page="contact" href="#contact">CONTACT US</a></div>
+<div class="actions"><a class="btn gold" href="#services">EXPLORE SERVICES</a><a class="btn glass" href="#contact">CONTACT US</a></div>
 </div></div></section>
 <div class="stats"><div class="wrap">
 <div class="stat"><b>Custom Clearance</b><span>Documentation and cargo clearance coordination.</span></div>
@@ -152,7 +175,7 @@ a,.btn,button{transition:all .22s ease!important}
 <div class="detail"><b>LOCATION</b><span>Hasrat Mohani Road, Karachi</span></div>
 <div class="detail"><b>CONTACT</b><span>03333288487</span></div>
 </div></div></div></section>
-<section class="page-view" id="about-page" style="display:none;">
+<section class="page-view" id="about" style="display:none;">
 <div class="page-hero"><div class="page-hero-inner">
 <span class="eyebrow">WHO WE ARE</span>
 <h1>ABOUT US</h1>
@@ -167,7 +190,7 @@ a,.btn,button{transition:all .22s ease!important}
 <div class="vvip-card" style="margin-top:22px"><h3>Experience &amp; Expertise</h3><p>The Shipping &amp; Logistics industry is changing rapidly and becoming increasingly complex across the globe. During the last thirteen years of development and transformation, TRI STAR MOVERS has gained considerable expertise in clearing, forwarding and logistics management and is capable of meeting the entire gamut of logistic needs of our clients.</p><p>We do not believe in boasting about ourselves in words; we believe in our services and the growth they have delivered over the years. We acknowledge the support and trust of our esteemed clients and continue to provide a wide range of services through our national and worldwide network.</p></div>
 </div></div>
 </section>
-<section class="page-view" id="services-page" style="display:none;">
+<section class="page-view" id="services" style="display:none;">
 <div class="page-hero"><div class="page-hero-inner">
 <span class="eyebrow">WHAT WE DO</span>
 <h1>OUR SERVICES</h1>
@@ -181,7 +204,7 @@ a,.btn,button{transition:all .22s ease!important}
 <article class="vvip-card"><span class="vvip-number">05</span><h3>Import &amp; Export Clearance under EFS</h3><p>Specialized clearance under the Export Facilitation Scheme (EFS), helping businesses benefit from streamlined procedures and cost efficiency.</p></article>
 </div></div></div>
 </section>
-<section class="page-view" id="ceo-page" style="display:none;">
+<section class="page-view" id="ceo" style="display:none;">
 <div class="page-hero"><div class="page-hero-inner">
 <span class="eyebrow">LEADERSHIP</span>
 <h1>CEO MESSAGE</h1>
@@ -196,7 +219,7 @@ a,.btn,button{transition:all .22s ease!important}
 </article>
 </div></div>
 </section>
-<section class="page-view" id="strengths-page" style="display:none;">
+<section class="page-view" id="strengths" style="display:none;">
 <div class="page-hero"><div class="page-hero-inner">
 <span class="eyebrow">OUR ADVANTAGE</span>
 <h1>OUR STRENGTHS</h1>
@@ -210,7 +233,7 @@ a,.btn,button{transition:all .22s ease!important}
 <article class="vvip-card"><span class="vvip-number">05</span><h3>Customs Knowledge</h3><p>Strong knowledge of customs regulations and procedures.</p></article>
 </div></div></div>
 </section>
-<section class="page-view" id="vision-page" style="display:none;">
+<section class="page-view" id="vision" style="display:none;">
 <div class="page-hero"><div class="page-hero-inner">
 <span class="eyebrow">OUR VISION</span>
 <h1>OUR VISION</h1>
@@ -228,74 +251,6 @@ a,.btn,button{transition:all .22s ease!important}
 <div class="contactcard"><h3>Direct Contact</h3><p>WhatsApp or call us directly on <b>03333288487</b>.</p><a class="btn gold" href="tel:923333288487">CALL NOW</a> <a class="btn" href="https://wa.me/923333288487" rel="noopener" style="background:#18b957;color:#fff" target="_blank">WHATSAPP</a></div>
 </div></div></section>
 <div class="floating"><a class="float call" href="tel:923333288487"><span class="circle">☎</span> CALL NOW</a><a class="float wa" href="https://wa.me/923333288487" rel="noopener" target="_blank"><span class="circle">◔</span> WHATSAPP</a></div>
-<section class="profile-section" id="about">
-<div class="profile-head"><span class="eyebrow">WHO WE ARE</span><h2>ABOUT US</h2><p>We fully focus on identifying our clients' specific needs and tailoring unique solutions to suit and solve their requirements.</p></div>
-<div class="profile-grid">
-<div class="profile-card"><h3>Your Business Partner</h3><p>We see ourselves as an extension of our customers in their respective supply chains, providing the best balance of cost and service. When we join a project, we establish a close working relationship with our clients based on professionalism and mutual respect.</p><p>This trust extends through all layers of our organization and is the basis of how we work to achieve our goal: thorough planning and flawless execution of best-in-class solutions for clients in the industry.</p></div>
-<div class="profile-card"><h3>Integrated Regional Network</h3><p>With our own offices in major crossing points across Afghanistan, our own fleet and facilities, and a network of exclusive partnerships across the wider region, we ensure that customers receive a seamless, transparent and end-to-end service experience for all shipments we move.</p><p>Being a fully integrated service provider, we offer our customers the services they require under one roof. With us as your business partner, you can rely on us.</p></div>
-</div>
-<div class="profile-card profile-wide"><h3>Experience &amp; Expertise</h3><p>The Shipping &amp; Logistics industry paradigm is changing rapidly and becoming complex day by day across the globe. Clients increasingly want to see cost-effective, accurate results delivered efficiently.</p><p>During the last thirteen years of development and transformation, the company has gained considerable expertise in clearing, forwarding and logistics management and is capable of meeting the entire gamut of logistic needs of our clients.</p><p>We do not believe in boasting about ourselves in words; rather, we believe in our services, because of which the company has shown splendid growth over the years. We acknowledge the support of our esteemed clients who have shown trust in us. Through our national and worldwide network, we provide a wide range of services to our clients.</p></div>
-</section>
 <footer><b>TRI STAR MOVERS</b><br/>Custom Clearance • Afgan Transit • Logistics • Warehousing<br/>Office # 120, 1st Floor, Techno City, Office Tower, Hasrat Mohani Road, Karachi<br/>© 2026 TRI STAR MOVERS. All Rights Reserved.</footer>
-
-
-<script id="vvip-page-router">
-(function(){
-  const aliases = {
-    '': 'home-page',
-    'home': 'home-page',
-    'home-page': 'home-page',
-    'about': 'about-page',
-    'about-page': 'about-page',
-    'services': 'services-page',
-    'services-page': 'services-page',
-    'ceo': 'ceo-page',
-    'ceo-page': 'ceo-page',
-    'strengths': 'strengths-page',
-    'strengths-page': 'strengths-page',
-    'vision': 'vision-page',
-    'vision-page': 'vision-page',
-    'contact': 'contact'
-  };
-
-  function getViews(){
-    return Array.from(document.querySelectorAll('.page-view'));
-  }
-
-  function openPage(name, updateUrl){
-    const id = aliases[(name || '').replace(/^#/,'').toLowerCase()] || 'home-page';
-    const target = document.getElementById(id);
-    const views = getViews();
-    if(!target) return;
-    views.forEach(function(v){ v.style.display='none'; v.classList.remove('active'); });
-    target.style.display='block';
-    target.classList.add('active');
-    window.scrollTo(0,0);
-    if(updateUrl){
-      history.pushState(null,'','#'+(name || 'home'));
-    }
-  }
-
-  // Capture all internal navigation links, including existing #about/#services links.
-  document.addEventListener('click', function(e){
-    let el = e.target.closest('a[href]');
-    if(!el) return;
-    const href = el.getAttribute('href') || '';
-    if(href.charAt(0) !== '#') return;
-    const key = href.substring(1);
-    if(Object.prototype.hasOwnProperty.call(aliases,key.toLowerCase())){
-      e.preventDefault();
-      e.stopPropagation();
-      openPage(key,true);
-    }
-  }, true);
-
-  window.addEventListener('popstate', function(){
-    openPage(location.hash.substring(1),false);
-  });
-
-  openPage(location.hash.substring(1),false);
-})();
-</script>
 </body>
 </html>
