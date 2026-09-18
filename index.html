@@ -108,6 +108,14 @@ body:has(.page-view:target) #home{display:none!important}
 @keyframes pageFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 </style>
 
+
+<style id="home-fix">
+/* HOME always opens the actual site root. */
+#home{display:block!important}
+.page-view:not(#home){display:none!important}
+.page-view:target{display:block!important}
+</style>
+
 </head>
 <body>
 <div class="top"><div class="wrap"><span>Karachi • Pakistan</span><span><b>TRI STAR MOVERS</b>  |  Custom Clearance • Transit • Logistics</span></div></div>
@@ -117,7 +125,7 @@ body:has(.page-view:target) #home{display:none!important}
 <div><strong>TRI STAR MOVERS</strong><small>CUSTOM CLEARANCE • AFGAN TRANSIT • LOGISTICS</small></div>
 </a>
 <nav>
-<a href="#home">HOME</a>
+<a href="./">HOME</a>
 <a href="#services">SERVICES</a>
 <a href="#about">ABOUT</a>
 <a href="#ceo">CEO MESSAGE</a>
